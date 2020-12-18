@@ -21,14 +21,9 @@ endif()
 # link allolib to project
 target_link_libraries(${APP_NAME} PRIVATE al)
 
-# example line for find_package usage
-# find_package(Qt5Core REQUIRED CONFIG PATHS "C:/Qt/5.12.0/msvc2017_64/lib" NO_DEFAULT_PATH)
+target_include_directories(${APP_NAME} PRIVATE /usr/local/include/libfreenect2)
 
-# replace ${PATH_TO_INCLUDE_DIR} before including other libraries
-# target_include_directories(${APP_NAME} PRIVATE ${PATH_TO_INCLUDE_DIR})
-
-# replace ${PATH_TO_LIB_FILE} before linking other libraries
-# target_link_libraries(${APP_NAME} PRIVATE ${PATH_TO_LIB_FILE})
+target_link_libraries(${APP_NAME} PRIVATE ${CMAKE_CURRENT_LIST_DIR}/libfreenect2.dylib)
 
 # binaries are put into the ./bin directory by default
 set_target_properties(${APP_NAME} PROPERTIES
